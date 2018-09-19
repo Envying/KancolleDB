@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Home Page</title>
-   <link rel="stylesheet" type="text/css" href="/static/style.css">
-  </head>
+{% extends "navbar.html" %}
+{% block content %}
   <body>
-      {{ nav.navbar.render() }}
+
         <div class="home">
           <h1>Welcome to KancolleDB</h1>
         </div>
+    
   </body>
-</html>
+  {% endblock %}
