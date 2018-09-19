@@ -7,20 +7,13 @@
       <table>
           <tr valign:"top">
               <td rowspan=2><a href="/"><img class="img-logo"  src="{{url_for('static', filename='logo-thumbnail.png')}}"></a></td>
-              <td class="logo-name-table"><img class="img-logo" src="{{url_for('static', filename='logo-name.png')}}"></td>
+              <td class="logo-name-table"><img class="img-logo-name" src="{{url_for('static', filename='logo-name.png')}}"></td>
           </tr>
           <tr>
               <td><nav class="navbar" role="navigation">
                    <div class="navbars-container">
                        <ul class="navbars-list">
-                           <li><a onclick="myFunction()" class="dropbtn">Maps</a></li>
-                               <div id="myDropdown" class="dropdown-content">
-                                 <a href="#">Map 1</a>
-                                 <a href="#">Map 2</a>
-                                 <a href="#">Map 3</a>
-                                 <a href="#">Map 4</a>
-                                 <a href="#">Map 5</a>
-                               </div>
+                           <li><a href="/form">Maps</a></li>
                            <li><a href="{{ url_for('form') }}">Event Maps</a></li>
                            <li><a href="/form">Event Planner</a></li>
                            <li><a href="/form">Forum</a></li>
@@ -31,26 +24,6 @@
                </nav></td>
           </tr>
       </table>
-
-<script>
-    function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
-
-    window.onclick = function(event) {
-      if (!event.target.matches('.dropbtn')) {
-
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
-          }
-        }
-      }
-    }
-</script>
 <body>
     {% block content %}
     {% endblock %}
