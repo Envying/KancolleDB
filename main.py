@@ -1,5 +1,17 @@
 from flask import Flask, render_template, request
+from flask_nav import Nav
+from flask_nav.elements import *
+
 app = Flask(__name__)
+nav = Nav(app)
+
+# registers the "top" menubar
+nav.register_element('navbar', Navbar(
+    'thenav',
+    View('Home', 'homepage'),
+    View('Form', 'form')
+))
+
 
 @app.route('/')
 def homepage():

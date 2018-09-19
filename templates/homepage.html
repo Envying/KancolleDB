@@ -5,11 +5,9 @@
    <link rel="stylesheet" type="text/css" href="/static/style.css">
   </head>
   <body>
-      {% extends 'navbar.html' %}
-      {% block content %}
+      {{ nav.navbar.render() }}
         <div class="home">
           <h1>Welcome to KancolleDB</h1>
         </div>
-      {% endblock %}
   </body>
 </html>
