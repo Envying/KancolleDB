@@ -1,6 +1,12 @@
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
+@app.route('/homepage')
+def homepage():
+    return render_template('homepage.html')
+
+    app.run()
+
 @app.route('/form')
 def form():
     return render_template('form.html')
