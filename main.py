@@ -1,18 +1,13 @@
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
-@app.route('/homepage')
+@app.route('/')
 def homepage():
     return render_template('homepage.html')
-
-    app.run()
 
 @app.route('/form')
 def form():
     return render_template('form.html')
-
-    app.run()
-
 
 @app.route('/submitted', methods=['POST'])
 def submitted_form():
@@ -27,3 +22,6 @@ def submitted_form():
         email=email,
         site=site,
         comments=comments)
+
+if __name__ == '__main__':
+    app.run(debug=True)

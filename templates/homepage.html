@@ -5,10 +5,11 @@
    <link rel="stylesheet" type="text/css" href="/static/style.css">
   </head>
   <body>
-    <div id="container">
-      <div class="pagetitle">
-        <h1>This is HomePage</h1>
-      </div>
-    </div>
+      {% extends 'navbar.html' %}
+      {% block content %}
+        <div class="home">
+          <h1>Welcome to KancolleDB</h1>
+        </div>
+      {% endblock %}
   </body>
 </html>
