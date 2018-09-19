@@ -5,27 +5,44 @@
 </head>
   <body class ="body">
       <nav class="navbar" role="navigation">
-          <div class="container">
-              <div class="navbar-header">
-                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                      <span class="sr-only">Toggle Naviation</span>
-                      <span class="icon bar"></span>
-                      <span class="icon bar"></span>
-                      <span class="icon bar"></span>
-                  </button>
-                <a class="nav-home" href="/">Home</a>
-               </div>
-
           <div class="navbars-container">
+              <a class="nav-home" href="/"><img class="img-logo" src="{{url_for('static', filename='logo-thumbnail.png')}}"></a>
               <ul class="navbars-list">
-                  <li><a href="/form">Maps</a></list>
-                  <li><a href="/form">Event Maps</a></list>
-                  <li><a href="/form">Event Planner</a></list>
-                  <li><a href="/form">Login</a></list>
+                  <li><a onclick="myFunction()" class="dropbtn">Maps</a></li>
+                      <div id="myDropdown" class="dropdown-content">
+                        <a href="#">Map 1</a>
+                        <a href="#">Map 2</a>
+                        <a href="#">Map 3</a>
+                        <a href="#">Map 4</a>
+                        <a href="#">Map 5</a>
+                      </div>
+                  <li><a href="{{ url_for('form') }}">Event Maps</a></li>
+                  <li><a href="/form">Event Planner</a></li>
+                  <li><a href="/form">Forum</a></li>
+                  <li style="float:right"><a class="acitve" href="/form">Login</a></li>
               </ul>
           </div>
           </div>
       </nav>
+<script>
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+</script>
 <body>
     {% block content %}
     {% endblock %}
