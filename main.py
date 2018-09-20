@@ -5,6 +5,10 @@ app = Flask(__name__)
 def homepage():
     return render_template('homepage.html')
 
+@app.route('/world_maps')
+def world_maps():
+    return render_template('world_maps.html')
+
 @app.route('/form')
 def form():
     return render_template('form.html')
