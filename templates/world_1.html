@@ -1,8 +1,24 @@
 {% extends "world_maps.html" %}
-{% block content %}
-<div id="London" class="world" style="display:none">
+{% block world % }
+<body>
+
   <h2>London</h2>
   <p>London is the capital city of England.</p>
   <p>It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
-</div>
+  <script>
+  function openWorld(evt, worldName) {
+    var i, x, tablinks;
+    x = document.getElementsByClassName("world");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < x.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+    }
+    document.getElementById(worldName).style.display = "block";
+    evt.currentTarget.className += " w3-red";
+  }
+  </script>
+</body>
 {% endblock %}
