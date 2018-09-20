@@ -78,7 +78,39 @@ li a:hover {
     background-color:#ccc!important
 }
 
+.sidebar-list a {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+    width: 98%;
+    display: block;
+}
+
 .w3-red,.w3-hover-red:hover{
     color:#fff!important;
     background-color:#f44336!important
 }
+
+.w3-button {
+    border:none;display:inline-block;
+    padding:8px 16px;
+    vertical-align:middle;
+    overflow:hidden;
+    text-decoration:none;
+    color:inherit;
+    background-color:inherit;
+    text-align:center;
+    cursor:pointer;
+    white-space:nowrap
+}
+
+.w3-hide {
+    display:none!important
+}
+
+.w3-show{
+    display:block!important
+}
+

@@ -1,22 +1,18 @@
 {% extends "navbar.html" %}
 {% block content %}
   <body>
-      <div class="home"><h1>World Maps</h1></div>
-        <div class="nav-sidebar">
-          <button class="sidebar sidebar-button tablink"  onclick="openWorld(event, 'London')">World 1</button>
-          <button class="sidebar sidebar-button tablink"  onclick="openWorld(event, 'Paris')">World 2</button>
-          <button class="sidebar sidebar-button tablink"  onclick="openWorld(event, 'Tokyo')">World 3</button>
-          <button class="sidebar sidebar-button tablink">World 4</button>
-          <button class="sidebar sidebar-button tablink">World 5</button>
-          <button class="sidebar sidebar-button tablink">Wrold 6</button>
-          <button class="sidebar sidebar-button tablink">World 7</button>
+    <div class="home"><h1>World Maps</h1></div>
+      <div class="nav-sidebar"'>
+        <button class="w3-button" onclick="myAccFunc()">World 1</button>
+        <div id="demoAcc" class="w3-hide sidebar-list">
+          <a onclick="openWorld(event, 'London')" class="sidebar sidebar-button tablink">Link</a>
+          <a onclick="openWorld(event, 'Paris')" class="sidebar sidebar-button tablink">Link</a>
         </div>
+      </div>
 
       <div style="margin-left:130px">
-              {% block world %}
-              {% endblock %}
-
-
+        {% include "world_1.html" %}
+     
         <div id="Paris" class="world" style="display:none">
           <h2>Paris</h2>
           <p>Paris is the capital of France.</p>
@@ -28,7 +24,6 @@
           <p>Tokyo is the capital of Japan.</p>
           <p>It is the center of the Greater Tokyo Area, and the most populous metropolitan area in the world.</p>
         </div>
-
       </div>
 
     <script>
@@ -44,6 +39,18 @@
       }
       document.getElementById(worldName).style.display = "block";
       evt.currentTarget.className += " w3-red";
+    }
+
+    function myAccFunc() {
+      var x = document.getElementById("demoAcc");
+      if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+          x.previousElementSibling.className += " w3-green";
+      } else { 
+          x.className = x.className.replace(" w3-show", "");
+          x.previousElementSibling.className = 
+          x.previousElementSibling.className.replace(" w3-green", "");
+      }
     }
     </script>
   </body>
