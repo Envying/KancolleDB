@@ -2,7 +2,7 @@
 {% block content %}
   <body>
     <div class="home"><h1>World Maps</h1></div>
-      <div class="nav-sidebar"'>
+      <div class="nav-sidebar">
         <button class="w3-button" onclick="myAccFunc()">World 1</button>
         <div id="demoAcc" class="w3-hide sidebar-list">
           <button class="sidebar sidebar-button tablink"  onclick="openWorld(event, 'London')">World 1-1</button>
@@ -13,7 +13,7 @@
 
       <div style="margin-left:130px">
         {% include "world_1.html" %}
-     
+
         <div id="Paris" class="world" style="display:none">
           <h2>Paris</h2>
           <p>Paris is the capital of France.</p>
@@ -48,9 +48,9 @@
       if (x.className.indexOf("w3-show") == -1) {
           x.className += " w3-show";
           x.previousElementSibling.className += " w3-green";
-      } else { 
+      } else {
           x.className = x.className.replace(" w3-show", "");
-          x.previousElementSibling.className = 
+          x.previousElementSibling.className =
           x.previousElementSibling.className.replace(" w3-green", "");
       }
     }
