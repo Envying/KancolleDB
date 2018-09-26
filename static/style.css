@@ -14,6 +14,14 @@
     /* border: 1px solid red; */
 }
 
+td {
+    border: 5px solid	#DCDCDC;
+}
+
+.body {
+  background-color:#DCDCDC;
+}
+
 /** NavBar **/
 
 .navbars-list {
@@ -113,12 +121,4 @@ li a:hover {
 
 .w3-show{
     display:block!important
-}
-
-td {
-    border: 5px solid	#DCDCDC;
-}
-
-.body {
-  background-color:#DCDCDC;
 }
