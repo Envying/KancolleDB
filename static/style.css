@@ -2,6 +2,16 @@
     color: #800080;
 }
 
+.world-maps-table {
+    border: 5px solid	#DCDCDC;
+}
+
+.img-maps {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
 /** Header table **/
 .logo-name-table {
     padding: 0px;
@@ -14,6 +24,10 @@
     /* border: 1px solid red; */
 }
 
+.body {
+  background-color:#DCDCDC;
+}
+
 /** NavBar **/
 
 .navbars-list {
@@ -22,7 +36,7 @@
     padding: 0;
     overflow: hidden;
     background-color: #333;
-    width: 98%;
+    width: 100%;
     /* position: fixed;
     top: 0;
     width: 100%; */
@@ -47,7 +61,8 @@ li a:hover {
 /** Side NavBar **/
 
 .nav-sidebar{
-    width:10%;
+    width:25%;
+    text-align: center;
 }
 
 .sidebar {
@@ -71,4 +86,90 @@ li a:hover {
     text-align:center;
     cursor:pointer;
     white-space:normal;
+}
+
+.sidebar-button:hover {
+    color:#000!important;
+    background-color:#ccc!important
+}
+
+.sidebar-list a {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+    width: 98%;
+    display: block;
+}
+
+.w3-red,.w3-hover-red:hover{
+    color:black!important;
+    background-color:#ccc!important
+}
+
+.w3-button {
+    border:none;display:inline-block;
+    padding:8px 16px;
+    vertical-align:middle;
+    overflow:hidden;
+    text-decoration:none;
+    color:inherit;
+    background-color:inherit;
+    text-align:center;
+    cursor:pointer;
+    white-space:nowrap
+}
+
+.w3-hide {
+    display:none!important
+}
+
+.w3-show{
+    display:block!important
+}
+
+.form-button {
+    border:none;
+    display:inline-block;
+    padding:8px 16px;
+    vertical-align:middle;
+    overflow:hidden;
+    text-decoration:none;
+    color:inherit;
+    background-color:#333;
+    text-align:center;
+    cursor:pointer;
+    white-space:normal;
+    float:right;
+    border: 2px solid black;
+}
+
+.form-button:hover {
+    color:#000!important;
+    background-color:#ccc!important
+}
+
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.9);
+    z-index: 2;
+    cursor: pointer;
+}
+
+#text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: white;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
 }
