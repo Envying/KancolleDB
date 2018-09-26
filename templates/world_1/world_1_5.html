@@ -2,10 +2,24 @@
   <h1>World 1-5</h1>
   <img class="img-maps" src="{{url_for('static', filename='world-1-5-map.png')}}"
   <br>
-  <button class="form-button">Submit new Fleet</div>
+  <button class="form-button" onclick="on()">Submit new Fleet</div>
   <br>
   <table width="100%" style="height: 100%;" cellpadding="10" cellspacing="0" border="0">
     <td width="80%"> TEST </td>
     <td width="20%"> TEST </td>
   </table>
 </div>
+
+<div id="overlay">
+ {% include "form.html" %}
+</div>
+
+<script>
+function on() {
+    document.getElementById("overlay").style.display = "block";
+}
+
+function off() {
+    document.getElementById("overlay").style.display = "none";
+}
+</script>
