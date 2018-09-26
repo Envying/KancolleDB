@@ -2,6 +2,16 @@
     color: #800080;
 }
 
+.world-maps-table {
+    border: 5px solid	#DCDCDC;
+}
+
+.img-maps {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
 /** Header table **/
 .logo-name-table {
     padding: 0px;
@@ -12,10 +22,6 @@
 .logo-table {
     padding: 0px;
     /* border: 1px solid red; */
-}
-
-td {
-    border: 5px solid	#DCDCDC;
 }
 
 .body {
