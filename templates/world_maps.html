@@ -1,6 +1,8 @@
 {% extends "navbar.html" %}
 {% block content %}
   <body>
+  <table width="100%" style="height: 100%;" cellpadding="10" cellspacing="0" border="0">
+    <td width="15%" valign="top" bgcolor="#333">
     <div class="home"><h1>World Maps</h1></div>
       <div class="nav-sidebar">
         <button class="w3-button" onclick="myAccFunc()">World 1</button>
@@ -17,7 +19,9 @@
           <button class="sidebar sidebar-button tablink"  onclick="openWorld(event, 'world_2_5')">World 2-5</button>
         </div> -->
       </div>
+      </td>
 
+      <td width="55%" valign="top" bgcolor="#C0C0C0">
       <div style="margin-left:130px">
         {% include "world_1/world_1_1.html" %}
         {% include "world_1/world_1_2.html" %}
@@ -27,6 +31,10 @@
         {% include "world_1/world_1_6.html" %}
         <!-- {% include "world_2/world_2_5.html" %} -->
       </div>
+      </td>
+      <td width="20%" valign="top" bgcolor="#333">&nbsp;</td>
+
+      </tr>
     <script>
       function openWorld(evt, worldName) {
         var i, x, tablinks;
