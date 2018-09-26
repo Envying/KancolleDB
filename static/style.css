@@ -128,3 +128,24 @@ li a:hover {
 .w3-show{
     display:block!important
 }
+
+.form-button {
+    border:none;
+    display:inline-block;
+    padding:8px 16px;
+    vertical-align:middle;
+    overflow:hidden;
+    text-decoration:none;
+    color:inherit;
+    background-color:#333;
+    text-align:center;
+    cursor:pointer;
+    white-space:normal;
+    float:right;
+    border: 2px solid black;
+}
+
+.form-button:hover {
+    color:#000!important;
+    background-color:#ccc!important
+}
