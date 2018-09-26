@@ -114,3 +114,11 @@ li a:hover {
 .w3-show{
     display:block!important
 }
+
+td {
+    border: 5px solid	#DCDCDC;
+}
+
+.body {
+  background-color:#DCDCDC;
+}
