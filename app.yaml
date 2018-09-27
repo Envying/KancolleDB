@@ -8,6 +8,11 @@ handlers:
 - url: /.*
   script: main.app
 
+env_variables:
+    CLOUDSQL_CONNECTION_NAME: kancolledb-project:australia-southeast1:kancolle-MySQLdb
+    CLOUDSQL_USER: root
+    CLOUDSQL_PASSWORD: kancolledbpw
+
 libraries:
 - name: MySQLdb
   version: latest
