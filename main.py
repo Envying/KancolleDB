@@ -68,5 +68,31 @@ def submitted_form():
         site=site,
         comments=comments)
 
+@app.route('/posts')
+def get_posts():
+    # Fetch all the posts
+    posts = Post.query.all()
+    # Create a serialization schema
+    schema = PostSerializer(many=True)
+    # Return all posts as json
+    return jsonify({ 'items': schema.dump(posts).data })
+
+def bootstrap_db():
+    # Create db tables if they don't exits. NOT SAFE FOR PRODUCTION USE!
+    db.create_all()
+    # create a couple of posts if there are none
+    if Post.query.count() == 0:
+        p1 = Post(author=u'john',
+                title=u'Do you know your Latin?',
+                body=u'Lorem ipsum dolor sit amet',
+                created_at=datetime.utcnow() + timedelta(days=-1))
+        p2 = Post(author=u'mary',
+                title=u'Easy way to a better life',
+                body=u'Eat healthy, move more, lift heavy, laugh.')
+        db.session.add_all([p1, p2])
+        db.session.commit()
+
+bootstrap_db()
+
 if __name__ == '__main__':
     app.run(debug=True)
