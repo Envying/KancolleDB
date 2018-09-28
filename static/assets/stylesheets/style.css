@@ -88,7 +88,7 @@ li a:hover {
     white-space:normal;
 }
 
-.sidebar-button:hover {
+.sidebar-button:hover, active{
     color:#000!important;
     background-color:#ccc!important
 }
@@ -221,3 +221,13 @@ select#fixed {
     margin-top:20%;
     background-color: #333;
 }
+
+/** Map Content **/
+.div-maps {
+    overflow: hidden;
+}
+
+.div-maps h2 {
+    text-align: center;
+}
+
