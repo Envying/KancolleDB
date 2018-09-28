@@ -1,33 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
-    <!-- <script type="text/javascript" src"{{url_for('static', filename='sidebar.js')}}"></script> -->
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+  <!-- <script type="text/javascript" src"{{url_for('static', filename='sidebar.js')}}"></script> -->
 </head>
   <body class ="body">
-      <table>
-          <tr valign:"top">
-              <td rowspan=2 class="logo-table"><a href="/"><img class="img-logo"  src="{{url_for('static', filename='logo-thumbnail.png')}}"></a></td>
-              <td class="logo-name-table"><img class="img-logo-name" src="{{url_for('static', filename='logo-name.png')}}">
-              <table>
-                  <nav class="navbar" role="navigation">
-                       <div class="navbars-container">
-                           <ul class="navbars-list">
-                               <li><a href="{{url_for('world_maps')}}">World Maps</a></li>
-                               <li><a href="{{url_for('form')}}">Event Maps</a></li>
-                               <li><a href="/form">Event Planner</a></li>
-                               <li><a href="/form">Forum</a></li>
-                               <li style="float:right"><a class="acitve" href="/form">Login</a></li>
-                           </ul>
-                       </div>
-                       </div>
-                   </nav>
-              </table></td>
-          </tr>
-          <tr>
-              <td></td>
-          </tr>
-      </table>
+    <table>
+      <tr valign:"top">
+        <td rowspan=2 class="logo-table"><a href="/"><img class="img-logo"  src="{{url_for('static', filename='logo-thumbnail.png')}}"></a></td>
+        <td class="logo-name-table"><img class="img-logo-name" src="{{url_for('static', filename='logo-name.png')}}">
+        <table>
+          <nav class="navbar" role="navigation">
+            <div class="navbars-container">
+              <ul class="navbars-list">
+                <li><a href="{{url_for('world_maps')}}">World Maps</a></li>
+                <li><a href="{{url_for('form')}}">Event Maps</a></li>
+                <li><a href="/form">Event Planner</a></li>
+                <li><a href="/form">Forum</a></li>
+                <li style="float:right"><a class="acitve" href="/form">Login</a></li>
+              </ul>
+            </div>
+          </nav>
+        </table></td>
+      </tr>
+    </table>
 <body>
     {% block content %}
     {% endblock %}
