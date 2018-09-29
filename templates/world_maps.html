@@ -36,16 +36,15 @@
 
     <script>
       function openWorld(evt, worldName) {
-        var i, x, tablinks;
-        x = document.getElementsByClassName("world");
-        for (i = 0; i < x.length; i++) {
-           x[i].style.display = "none";
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("world");
+        for (i = 0; i < tabcontent.length; i++) {
+           tabcontent[i].style.display = "none";
         }
         tablinks = document.getElementsByClassName("tablink");
-        for (i = 0; i < x.length; i++) {
+        for (i = 0; i < tablinks.length; i++) {
             tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
         }
-
         if (document.getElementById(worldName).style.display === "block") {
         	document.getElementById(worldName).style.display = "none";
         } else {
