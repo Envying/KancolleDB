@@ -1,9 +1,10 @@
-<div class="div-maps" id="world_1_5" class="world" style="display:none">
+<div class="div-maps world" id="world_1_5" style="display:none">
   <h2>World 1-5<br>
     Adjacent Seas of the Naval Base<br>
     鎮守府近海
   </h2>
   <img class="img-maps" src="{{url_for('static', filename='assets/img/map/world 1/1-5_Map.png')}}">
+  {% include "world_map_content.html" %}
   <button class="form-button" onclick="on()">Submit new Fleet</button>
 </div>
 

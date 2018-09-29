@@ -1,69 +1,80 @@
 {% extends "navbar.html" %}
 {% block content %}
-  <body style="color:white">
-  <table width="100%" style="height: 100%;" cellpadding="10" cellspacing="0" border="0">
-    <td class="world-maps-table" width="15%" valign="top" bgcolor="#333">
-    <div class="home"><h1>World Maps</h1></div>
+  <body>
+  <table class="page-content">
+    <td class="world-map-menu">
+    <div class="sidebar-title">
+      <h1>World Maps</h1>
+    </div>
       <div class="nav-sidebar">
-        <button class="w3-button" onclick="myAccFunc()">World 1</button>
-        <div id="demoAcc" class="w3-hide sidebar-list">
-          <button class="sidebar sidebar-button tablink"  onclick="openWorld(event, 'world_1_1')">World 1-1</button>
-          <button class="sidebar sidebar-button tablink"  onclick="openWorld(event, 'world_1_2')">World 1-2</button>
-          <button class="sidebar sidebar-button tablink"  onclick="openWorld(event, 'world_1_3')">World 1-3</button>
-          <button class="sidebar sidebar-button tablink"  onclick="openWorld(event, 'world_1_4')">World 1-4</button>
-          <button class="sidebar sidebar-button tablink"  onclick="openWorld(event, 'world_1_5')">World 1-5</button>
-          <button class="sidebar sidebar-button tablink"  onclick="openWorld(event, 'world_1_6')">World 1-6</button>
+        <button class="w3-button" onclick="expandWorld('world-1-buttons')">World 1</button>
+        <div id="world-1-buttons" class="w3-hide sidebar-list">
+          <button class="sidebar-button"  onclick="displayMap(event, 'world_1_1')">World 1-1</button>
+          <button class="sidebar-button"  onclick="displayMap(event, 'world_1_2')">World 1-2</button>
+          <button class="sidebar-button"  onclick="displayMap(event, 'world_1_3')">World 1-3</button>
+          <button class="sidebar-button"  onclick="displayMap(event, 'world_1_4')">World 1-4</button>
+          <button class="sidebar-button"  onclick="displayMap(event, 'world_1_5')">World 1-5</button>
+          <button class="sidebar-button"  onclick="displayMap(event, 'world_1_6')">World 1-6</button>
         </div>
         <!-- <button class="w3-button" onclick="myAccFunc1()">World 2</button>
         <div id="demoAcc1" class="w3-hide sidebar-list">
           <button class="sidebar sidebar-button tablink"  onclick="openWorld(event, 'world_2_5')">World 2-5</button>
         </div> -->
       </div>
-      </td>
+    </td>
+    <td class="world-map-content">
+      {% include "world_1/world_1_1.html" %}
+      {% include "world_1/world_1_2.html" %}
+      {% include "world_1/world_1_3.html" %}
+      {% include "world_1/world_1_4.html" %}
+      {% include "world_1/world_1_5.html" %}
+      {% include "world_1/world_1_6.html" %}
+      <!-- {% include "world_2/world_2_5.html" %} -->
+    </td>
+    <td class="world-map-stats">
+      {% include "world_1/stats/world_1_1.html" %}
+      {% include "world_1/stats/world_1_2.html" %}
+      {% include "world_1/stats/world_1_3.html" %}
+      {% include "world_1/stats/world_1_4.html" %}
+      {% include "world_1/stats/world_1_5.html" %}
+      {% include "world_1/stats/world_1_6.html" %}
+    </td>
+  </table>
 
-      <td class="world-maps-table" width="55%" valign="top" bgcolor="#696969">
-      <div>
-        {% include "world_1/world_1_1.html" %}
-        {% include "world_1/world_1_2.html" %}
-        {% include "world_1/world_1_3.html" %}
-        {% include "world_1/world_1_4.html" %}
-        {% include "world_1/world_1_5.html" %}
-        {% include "world_1/world_1_6.html" %}
-        <!-- {% include "world_2/world_2_5.html" %} -->
-      </div>
-      </td>
-      <td class="world-maps-table" width="20%" valign="top" bgcolor="#333"></td>
+  <script>
+    // Expand the world menu button
+    function expandWorld(worldButtons) {
+      var x = document.getElementById(worldButtons);
+      if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+          x.previousElementSibling.className += " w3-green";
+      } else {
+          x.className = x.className.replace(" w3-show", "");
+          x.previousElementSibling.className =
+          x.previousElementSibling.className.replace(" w3-green", "");
+      }
+    }
 
-    <script>
-      function openWorld(evt, worldName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("world");
-        for (i = 0; i < tabcontent.length; i++) {
-           tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablink");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
-        }
-        if (document.getElementById(worldName).style.display === "block") {
-        	document.getElementById(worldName).style.display = "none";
-        } else {
-        document.getElementById(worldName).style.display = "block";
-        evt.currentTarget.className += " w3-red";
-    	}
+    // Displays map content
+    function displayMap(evt, worldName) {
+      var i, map_content, sidebar_button;
+      var stats = "_stats";
+
+      // Initially hide all content
+      map_content = document.getElementsByClassName("world");
+      for (i = 0; i < map_content.length; i++) {
+         map_content[i].style.display = "none";
       }
 
-      function myAccFunc() {
-        var x = document.getElementById("demoAcc");
-        if (x.className.indexOf("w3-show") == -1) {
-            x.className += " w3-show";
-            x.previousElementSibling.className += " w3-green";
-        } else {
-            x.className = x.className.replace(" w3-show", "");
-            x.previousElementSibling.className =
-            x.previousElementSibling.className.replace(" w3-green", "");
-        }
+      // Highlight selected button and display its content
+      sidebar_button = document.getElementsByClassName("sidebar-button");
+      for (i = 0; i < sidebar_button.length; i++) {
+          sidebar_button[i].className = sidebar_button[i].className.replace("w3-red", "");
       }
+    	document.getElementById(worldName).style.display = "block";
+      document.getElementById(worldName + stats).style.display = "block"; 
+      evt.currentTarget.className += " w3-red";
+    }
       //
       // function myAccFunc1() {
       //   var x = document.getElementById("demoAcc1");
@@ -76,6 +87,6 @@
       //       x.previousElementSibling.className.replace(" w3-green", "");
       //   }
       // }
-    </script>
+  </script>
   </body>
 {% endblock %}

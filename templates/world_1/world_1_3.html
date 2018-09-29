@@ -1,9 +1,10 @@
-<div class="div-maps" id="world_1_3" class="world" style="display:none">
+<div class="div-maps world" id="world_1_3" style="display:none">
   <h2>World 1-3<br>
   	Coastal Refinery Zone<br>
 		製油所地帯沿岸
 	</h2>
   <img class="img-maps" src="{{url_for('static', filename='assets/img/map/world 1/1-3_Map.png')}}">
+  {% include "world_map_content.html" %}
   <button class="form-button" onclick="on()">Submit new Fleet</button>
 </div>
 
