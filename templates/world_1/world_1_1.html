@@ -1,4 +1,12 @@
-<div id="world_1_1" class="world" style="display:none">
-  <h2>World 1-1</h2>
-  <p>Page Still under Construction</p>
+<div class="div-maps world" id="world_1_1" style="display:none">
+  <h2>World 1-1<br>
+  	Sea in Front of the Naval Base<br> 
+  	鎮守府正面海域
+  </h2>
+  <img class="img-maps" src="{{url_for('static', filename='assets/img/map/world 1/1-1_Map.png')}}">
+  {% include "world_map_content.html" %}
+  <button class="form-button" onclick="on()">Submit new Fleet</button>
 </div>
+
+{% include "form_overlay.html" %}
+
