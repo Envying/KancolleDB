@@ -4,8 +4,6 @@ from datetime import datetime, timedelta
 from flask_sqlalchemy import SQLAlchemy
 from marshmallow import Schema, fields
 
-app = Flask(__name__)
-
 def gen_connection_string():
     # if not on Google then use local MySQL
     if not os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine/'):
@@ -53,6 +51,33 @@ def world_maps():
 @app.route('/form')
 def form():
     return render_template('form.html')
+
+@app.route('/posts')
+def get_posts():
+    # Fetch all the posts
+    posts = Post.query.all()
+    # Create a serialization schema
+    schema = PostSerializer(many=True)
+    # Return all posts as json
+    return jsonify({ 'items': schema.dump(posts).data })
+
+def bootstrap_db():
+    # Create db tables if they don't exits. NOT SAFE FOR PRODUCTION USE!
+    db.create_all()
+    # create a couple of posts if there are none
+    if Post.query.count() == 0:
+        p1 = Post(author=u'john',
+                title=u'Do you know your Latin?',
+                body=u'Lorem ipsum dolor sit amet',
+                created_at=datetime.utcnow() + timedelta(days=-1))
+        p2 = Post(author=u'mary',
+                title=u'Easy way to a better life',
+                body=u'Eat healthy, move more, lift heavy, laugh.')
+        db.session.add_all([p1, p2])
+        db.session.commit()
+
+bootstrap_db()
+
 
 @app.route('/submitted', methods=['POST'])
 def submitted_form():
