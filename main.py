@@ -15,15 +15,9 @@ def world_maps():
 def form():
     return render_template('form.html')
 
-@app.route('/posts')
-def get_posts():
-    # Fetch all the posts
-    posts = Post.query.all()
-    # Create a serialization schema
-    schema = PostSerializer(many=True)
-    # Return all posts as json
-    return jsonify({ 'items': schema.dump(posts).data })
-
+@app.route('/loginpage')
+def loginpage():
+    return render_template('loginpage.html')
 
 @app.route('/submitted', methods=['POST'])
 def submitted_form():
