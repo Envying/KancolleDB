@@ -1,7 +1,45 @@
 import os
-from flask import Flask, render_template, request, jsonify
+import json
+import datetime
+
+from flask import Flask, render_template, session, request, jsonify, url_for
+from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.login import LoginManager, login_required, login_user, \
+    logout_user, current_user, UserMixin
+from requests_oauthlib import OAuth2Session
+from requests.exceptions import HTTPError
 
 app = Flask(__name__)
+
+app.config.from_object(config['dev'])
+db = SQLAlchemy(app)
+login_manager = LoginManager(app)
+login_manager.login_view = "login"
+login_manager.session_protection = "strong"
+
+class User(db.Model):
+    __tablename__ = "users"
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(100), unique=True, nullable=False)
+    name = db.Column(db.String(100), nullable=True)
+    avatar = db.Column(db.String(200))
+    active = db.Column(db.Boolean, default=False)
+    tokens = db.Column(db.Text)
+    created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow())
+
+def get_google_auth(state=None, token=None):
+    if token:
+        return OAuth2Session(Auth.CLIENT_ID, token=token)
+    if state:
+        return OAuth2Session(
+            Auth.CLIENT_ID,
+            state=state,
+            redirect_uri=Auth.REDIRECT_URI)
+    oauth = OAuth2Session(
+        Auth.CLIENT_ID,
+        redirect_uri=Auth.REDIRECT_URI,
+        scope=Auth.SCOPE)
+    return oauth
 
 @app.route('/')
 def homepage():

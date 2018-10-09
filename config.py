@@ -2,7 +2,6 @@ import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-
 class Auth:
     CLIENT_ID = ('236022772111-k75a5rbus7mstud3rkoddm6n1d6p112a'
                  '.apps.googleusercontent.com')
