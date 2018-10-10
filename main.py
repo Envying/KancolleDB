@@ -3,9 +3,8 @@ import json
 import datetime
 
 from flask import Flask, render_template, session, request, jsonify, url_for
-from flask.ext.sqlalchemy import SQLAlchemy
-from flask.ext.login import LoginManager, login_required, login_user, \
-    logout_user, current_user, UserMixin
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager, login_required, login_user, logout_user, current_user, UserMixin
 from requests_oauthlib import OAuth2Session
 from requests.exceptions import HTTPError
 
@@ -56,6 +55,12 @@ def form():
 @app.route('/loginpage')
 def login():
     return render_template('loginpage.html')
+
+@app.route('/logoutpage')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('homepage'))
 
 @app.route('/authCallBack')
 def callback():
