@@ -10,22 +10,22 @@ SECRET_KEY = 'secret'
 # configure the respective settings for the one you choose below.
 # You do not have to configure the other data backends. If unsure, choose
 # 'datastore' as it does not require any additional configuration.
-DATA_BACKEND = 'datastore'
+DATA_BACKEND = 'cloudsql'
 
 # Google Cloud Project ID. This can be found on the 'Overview' page at
 # https://console.developers.google.com
-PROJECT_ID = 'your-project-id'
+PROJECT_ID = 'kancolledb-project'
 
 # CloudSQL & SQLAlchemy configuration
 # Replace the following values the respective values of your Cloud SQL
 # instance.
 CLOUDSQL_USER = 'root'
-CLOUDSQL_PASSWORD = 'your-cloudsql-password'
+CLOUDSQL_PASSWORD = 'kancolledbpw'
 CLOUDSQL_DATABASE = 'bookshelf'
 # Set this value to the Cloud SQL connection name, e.g.
 #   "project:region:cloudsql-instance".
 # You must also update the value in app.yaml.
-CLOUDSQL_CONNECTION_NAME = 'your-cloudsql-connection-name'
+CLOUDSQL_CONNECTION_NAME = 'kancolledb-project:australia-southeast1:kancolle-MySQLdb'
 
 # The CloudSQL proxy is used locally to connect to the cloudsql instance.
 # To start the proxy, use:
@@ -42,22 +42,17 @@ LOCAL_SQLALCHEMY_DATABASE_URI = (
         database=CLOUDSQL_DATABASE)
 
 # When running on App Engine a unix socket is used to connect to the cloudsql
-# instance.
-LIVE_SQLALCHEMY_DATABASE_URI = (
-    'mysql+pymysql://{user}:{password}@localhost/{database}'
-    '?unix_socket=/cloudsql/{connection_name}').format(
-        user=CLOUDSQL_USER, password=CLOUDSQL_PASSWORD,
-        database=CLOUDSQL_DATABASE, connection_name=CLOUDSQL_CONNECTION_NAME)
-
-if os.environ.get('GAE_INSTANCE'):
-    SQLALCHEMY_DATABASE_URI = LIVE_SQLALCHEMY_DATABASE_URI
-else:
-    SQLALCHEMY_DATABASE_URI = LOCAL_SQLALCHEMY_DATABASE_URI
-
-# Mongo configuration
-# If using mongolab, the connection URI is available from the mongolab control
-# panel. If self-hosting on compute engine, replace the values below.
-MONGO_URI = 'mongodb://user:password@host:27017/database'
+# # instance.
+# LIVE_SQLALCHEMY_DATABASE_URI = (
+#     'mysql+pymysql://{user}:{password}@localhost/{database}'
+#     '?unix_socket=/cloudsql/{connection_name}').format(
+#         user=CLOUDSQL_USER, password=CLOUDSQL_PASSWORD,
+#         database=CLOUDSQL_DATABASE, connection_name=CLOUDSQL_CONNECTION_NAME)
+#
+# if os.environ.get('GAE_INSTANCE'):
+#     SQLALCHEMY_DATABASE_URI = LIVE_SQLALCHEMY_DATABASE_URI
+# else:
+#     SQLALCHEMY_DATABASE_URI = LOCAL_SQLALCHEMY_DATABASE_URI
 
 # Google Cloud Storage and upload settings.
 # Typically, you'll name your bucket the same as your project. To create a
@@ -71,10 +66,10 @@ MONGO_URI = 'mongodb://user:password@host:27017/database'
 #   $ gsutil defacl set public-read gs://<your-bucket-name>
 #
 # You can adjust the max content length and allow extensions settings to allow
-# larger or more varied file types if desired.
-CLOUD_STORAGE_BUCKET = 'your-bucket-name'
-MAX_CONTENT_LENGTH = 8 * 1024 * 1024
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
+# # larger or more varied file types if desired.
+# CLOUD_STORAGE_BUCKET = 'your-bucket-name'
+# MAX_CONTENT_LENGTH = 8 * 1024 * 1024
+# ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 # OAuth2 configuration.
 # This can be generated from the Google Developers Console at
@@ -87,6 +82,5 @@ ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 #
 # If you receive a invalid redirect URI error review you settings to ensure
 # that the current URI is allowed.
-GOOGLE_OAUTH2_CLIENT_ID = \
-    'your-client-id'
-GOOGLE_OAUTH2_CLIENT_SECRET = 'your-client-secret'
+GOOGLE_OAUTH2_CLIENT_ID = '236022772111-k75a5rbus7mstud3rkoddm6n1d6p112a.apps.googleusercontent.com'
+GOOGLE_OAUTH2_CLIENT_SECRET = 'wW93SSZsZJZ3kJTVoROwaHIH'
