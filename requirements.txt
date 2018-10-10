@@ -3,3 +3,4 @@ Werkzeug<0.13.0,>=0.12.0
 Flask-SQLAlchemy
 Flask-login
 marshmallow
+oauth2client
