@@ -1,7 +1,7 @@
 import json
 import logging
 
-from flask import current_app, Flask, redirect, request, session, url_for
+from flask import current_app, Flask, redirect, request, session, url_for, render_template
 import httplib2
 
 from oauth2client.contrib.flask_util import UserOAuth2

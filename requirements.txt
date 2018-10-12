@@ -5,4 +5,6 @@ google-cloud-storage==1.7.0
 Flask-SQLAlchemy
 Flask-login
 marshmallow
-oauth2client
+oauth2client==4.1.2
+PyMySQL==0.8.0
+six==1.11.0
