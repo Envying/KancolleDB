@@ -8,3 +8,4 @@ six==1.11.0
 Flask-mail
 Flask_bcrypt
 Flask_wtf
+Flask-mysql
