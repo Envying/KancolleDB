@@ -8,3 +8,5 @@ marshmallow
 oauth2client==4.1.2
 PyMySQL==0.8.0
 six==1.11.0
+Flask-mail
+Flask_bcrypt
