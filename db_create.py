@@ -23,6 +23,7 @@ def loadShipDatabase():
 			cur.execute(insert_statement, row)
 			db.commit()
 
+# Delete all rows from ship database
 def deleteShipDatabase():
 	cur.execute("""truncate table ship """)
 	db.commit()
