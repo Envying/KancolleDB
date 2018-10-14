@@ -16,8 +16,4 @@ env_variables:
 
 libraries:
 - name: MySQLdb
-  version:
-- name: Bcrypt
-  verison:
-- name: PIL
-  version:
+  version: latest

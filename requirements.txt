@@ -12,3 +12,4 @@ Flask_bcrypt
 Flask_wtf
 Flask-mysql
 py-bcrypt
+Flask-security

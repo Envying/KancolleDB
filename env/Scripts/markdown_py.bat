@@ -1,0 +1,1 @@
+@"c:\users\jon_s\docume~1\rmit\bp094b~1\cosc26~3\assign~1\kancol~1\env\scripts\python.exe" "c:\users\jon_s\docume~1\rmit\bp094b~1\cosc26~3\assign~1\kancol~1\env\Scripts\markdown_py" %*
