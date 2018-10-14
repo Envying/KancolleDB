@@ -10,7 +10,7 @@ handlers:
   script: main.app
 
 env_variables:
-    CLOUDSQL_CONNECTION_NAME: kancolledb-project:australia-southeast1:kancolle-MySQLdb
+    CLOUDSQL_CONNECTION_NAME: kancolledb-project:australia-southeast1:kancolle-mysql
     CLOUDSQL_USER: root
     CLOUDSQL_PASSWORD: kancolledbpw
 

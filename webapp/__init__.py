@@ -7,7 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:kancolledbpw@localhost/kancolleDB'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:kancolledbpw@127.0.0.1:3306/admin'
 db = SQLAlchemy(app)
 
 # bcrypt = Bcrypt(app)
@@ -21,4 +21,4 @@ db = SQLAlchemy(app)
 # app.config['MAIL_PASSWORD'] = os.environ.get('EMAIL_PASS')
 # mail = Mail(app)
 
-from webapp import routes
+from webapp import routes, models
