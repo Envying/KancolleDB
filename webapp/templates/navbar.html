@@ -18,11 +18,11 @@
                                <li><a href="/form">Event Planner</a></li>
                                <li><a href="/form">Forum</a></li>
                                <!-- added a for loop to check if user is is authenticated (changes login and logout button) -->
-                               {%- if current_user.is_authenticated -%}
+                               {% if current_user.is_authenticated %}
                                <li style="float:right"><a class="active" href="{{url_for('logout')}}">Logout</a></li>
-                               {%- else -%}
+                               {% else %}
                                <li style="float:right"><a class="active" href="{{url_for('login')}}">Login</a>
-                               {%- endif -%}
+                               {% endif %}
                            </ul>
                        </div>
                        </div>

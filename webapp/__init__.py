@@ -5,12 +5,14 @@ from flask_login import LoginManager
 from flask_mail import Mail
 from werkzeug.serving import make_ssl_devcert
 
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:kancolledbpw@127.0.0.1:3306/admin'
 db = SQLAlchemy(app)
 make_ssl_devcert('./ssl', host='localhost')
 login_manager = LoginManager(app)
+login_manager.init_app(app)
 login_manager.login_view = 'login'
 login_manager.session_protection = "strong"
 login_manager.login_message_category = 'info'
@@ -20,5 +22,9 @@ login_manager.login_message_category = 'info'
 # app.config['MAIL_USERNAME'] = os.environ.get('EMAIL_USER')
 # app.config['MAIL_PASSWORD'] = os.environ.get('EMAIL_PASS')
 # mail = Mail(app)
+
+@login_manager.user_loader
+def load_user(id):
+    return None
 
 from webapp import routes, models
