@@ -1,4 +1,5 @@
 from webapp import db
+from flask_login import UserMixin
 
 # SQLAchemy model
 
@@ -11,7 +12,7 @@ def __init__(self, name, ship_class):
    self.name = name
    self.ship_class = ship_class
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(100), unique=True, nullable=False)
