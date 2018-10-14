@@ -19,4 +19,4 @@ login_manager.login_message_category = 'info'
 # app.config['MAIL_PASSWORD'] = os.environ.get('EMAIL_PASS')
 # mail = Mail(app)
 
-from webapp import routes
+from webapp import routes, models
