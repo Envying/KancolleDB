@@ -2,7 +2,7 @@ import os
 # import secrets
 # from PIL import Image
 from flask import render_template, url_for, flash, redirect, request, abort
-from webapp import app
+from webapp import app, oauth, oauth_config
 # db, bcrypt, mail
 # from webapp.forms import (RegistrationForm, LoginForm, UpdateAccountForm,
 #                              PostForm, RequestResetForm, ResetPasswordForm)
