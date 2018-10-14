@@ -1,6 +1,7 @@
 from webapp.config import Auth
 from requests_oauthlib import OAuth2Session
 
+# Defing a method, and setting tokens and states
 def get_google_auth(state=None, token=None):
     if token:
         return OAuth2Session(Auth.CLIENT_ID, token=token)

@@ -1,3 +1,5 @@
+# This is the config file for oauth2, setting variables
+
 class Auth:
     CLIENT_ID = ('236022772111-r1ls58b9ps2vs6q7t1b4g2hr2nqf4jdm'
                  '.apps.googleusercontent.com')

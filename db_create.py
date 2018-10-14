@@ -25,7 +25,7 @@ def loadShipDatabase():
 
 # Delete all rows from ship database
 def deleteShipDatabase():
-	cur.execute("""truncate table ship """)
+	cur.execute("DROP TABLE ship")
 	db.commit()
 
 # Some if statement to check if changes made to csv vs database
@@ -33,10 +33,19 @@ def deleteShipDatabase():
 
 # db.create_all()
 
+# Delete User table
+def deleteUserDatabase():
+	cur.execute("DROP TABLE user")
+	db.commit()
+
+# pre create the User table
 def createUserDatabase():
 	insert_statement = (
-				"INSERT INTO user (email, name, avatar, tokens) "
-				"VALUES (%s, %s, %s, %s)"
+				"CREATE TABLE user (id int, email varchar(255), name varchar(255), avatar varchar(255), tokens varchar(255)) "
 				)
+	cur.execute(insert_statement)
+	db.commit()
 
-createUserDatabase()
+# call the following methods to delete or create the user table
+# deleteUserDatabase()
+# createUserDatabase()
