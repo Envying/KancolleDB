@@ -29,7 +29,7 @@ def form():
 @app.route('/loginpage')
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('index'))
+        return redirect(url_for('homepage'))
     google = get_google_auth()
     auth_url, state = google.authorization_url(
         Auth.AUTH_URI, access_type='offline')
@@ -39,7 +39,7 @@ def login():
 @app.route('/oAuthcallback')
 def callback():
     if current_user is not None and current_user.is_authenticated:
-        return redirect(url_for('index'))
+        return redirect(url_for('homepage'))
     if 'error' in request.args:
         if request.args.get('error') == 'access_denied':
             return 'You denied access.'
@@ -71,7 +71,7 @@ def callback():
             db.session.add(user)
             db.session.commit()
             login_user(user)
-            return redirect(url_for('index'))
+            return redirect(url_for('homepage'))
         return 'Could not fetch your information.'
 
 @app.route('/logout')
