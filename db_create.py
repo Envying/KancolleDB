@@ -32,3 +32,11 @@ def deleteShipDatabase():
 # if true recreate db else do nothing
 
 # db.create_all()
+
+def createUserDatabase():
+	insert_statement = (
+				"INSERT INTO user (email, name, avatar, tokens) "
+				"VALUES (%s, %s, %s, %s)"
+				)
+
+createUserDatabase()
