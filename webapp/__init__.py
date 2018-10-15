@@ -10,8 +10,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = gen_connection()
 db = SQLAlchemy(app)
 
 # use this to run the SSL to run locally on 127.0.0.1:8080
-from werkzeug.serving import make_ssl_devcert
-make_ssl_devcert('./ssl', host='localhost')
+# from werkzeug.serving import make_ssl_devcert
+# make_ssl_devcert('./ssl', host='localhost')
 
 login_manager = LoginManager(app)
 login_manager.init_app(app)
