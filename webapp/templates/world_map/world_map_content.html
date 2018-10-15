@@ -1,9 +1,34 @@
 <div class="content-container">
   <div id="wrap">
-    <!-- Composition/Votes Table-->
-    <p>Insert Composition/Votes Table Here</p>
-    <p>See world_map_content.html</p>
-  </div> 
+  <!-- Composition Table for world 1-1-->
+  <table class="fleet-composition" id="world_1_1_composition">
+  	<tr>
+  		<th>
+  			Fleet Composition
+  		</th>
+  	</tr>
+  	{% for composition in fleet_composition_1_1 %}
+  	<tr>
+  		<td>
+  			Ship Name
+  		</td>
+  		{% for i in range(1,13,2) %}
+  		<td>
+  			{{composition[i]}}
+  		</td>
+  		{% endfor %}
+  	</tr>
+  	<tr>
+  		<td>
+  			Ship Class
+  		</td>
+  		{% for i in range(2,14,2) %}
+  		<td>
+  			{{composition[i]}}
+  		</td>
+  		{% endfor %}
+  	</tr>
+  	{% endfor %}
+  </table>
+	</div> 
 </div>
-
-<!-- Some Javascript to generate our table by getting no. of compositions for some map-->

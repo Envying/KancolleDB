@@ -273,4 +273,14 @@ select#fixed {
     background-color: #333;
 }
 
+.fleet-composition {
+    margin: auto;
+}
+
+.fleet-composition td, .fleet-composition tr, .fleet-compositon th {
+    border: 1px solid black;
+    text-align: center;
+    margin: auto;
+}
+
 

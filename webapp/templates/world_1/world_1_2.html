@@ -1,11 +1,9 @@
 <div class="div-maps world" id="world_1_2" style="display:none">
   <h2>World 1-2<br>
   	Sea around the Nansei Islands<br>
-		南西諸島沖<br>
-	</h2>
+	南西諸島沖
+  </h2>
   <img class="img-maps" src="{{url_for('static', filename='assets/img/map/world 1/1-2_Map.png')}}">
   {% include "world_map/world_map_content.html" %}
-  <button class="form-button" onclick="on()">Submit new Fleet</button>
+  {% include "world_map/world_map_form.html" %}
 </div>
-
-{% include "form_overlay.html" %}

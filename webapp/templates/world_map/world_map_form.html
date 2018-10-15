@@ -1,99 +1,45 @@
 <div class="div-form">
-<form method="post" action="#" class="form-container">
-  Map Name Here
-  <br> <br>
-  <table>
-    <tr>
-      <td> Ship Class </td>
-      <td> Ship Name </td>
-    </tr>
-    <tr>
-      <td><select name="cars">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="fiat">Fiat</option>
-        <option value="audi">Audi</option>
-      </select></td>
-      <td><select name="cars">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="fiat">Fiat</option>
-        <option value="audi">Audi</option>
-      </select></td>
-    </tr>
-    <tr>
-      <td><select name="cars">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="fiat">Fiat</option>
-        <option value="audi">Audi</option>
-      </select></td>
-      <td><select name="cars">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="fiat">Fiat</option>
-        <option value="audi">Audi</option>
-      </select></td>
-    </tr>
-    <tr>
-      <td><select name="cars">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="fiat">Fiat</option>
-        <option value="audi">Audi</option>
-      </select></td>
-      <td><select name="cars">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="fiat">Fiat</option>
-        <option value="audi">Audi</option>
-      </select></td>
-    </tr>
-    <tr>
-      <td><select name="cars">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="fiat">Fiat</option>
-        <option value="audi">Audi</option>
-      </select></td>
-      <td><select name="cars">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="fiat">Fiat</option>
-        <option value="audi">Audi</option>
-      </select></td>
-    </tr>
-    <tr>
-      <td><select name="cars">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="fiat">Fiat</option>
-        <option value="audi">Audi</option>
-      </select></td>
-      <td><select name="cars">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="fiat">Fiat</option>
-        <option value="audi">Audi</option>
-      </select></td>
-    </tr>
-    <tr>
-      <td><select name="cars">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="fiat">Fiat</option>
-        <option value="audi">Audi</option>
-      </select></td>
-      <td><select name="cars">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="fiat">Fiat</option>
-        <option value="audi">Audi</option>
-      </select></td>
-    </tr>
-  </table>
-  <br><br>
-   <button type="submit" class="btn">Submit</button>
-   <button type="button" class="btn cancel" onclick="off()">Close</button>
-</form>
+  <form method="post" action="/post_comp" class="form-container">
+    <h3>Suggest New Fleet Composition</h3>
+    <table>
+      <tr>
+        <td> Ship Name </td>
+        <td> Ship Class </td>
+      </tr>
+      {% for i in range(6) %}
+        <tr>
+          <td>
+            <select name="ship_name{{i}}">
+              {% for name in ship_name %}
+                <option value={{name}}>{{name}}</option>
+              {% endfor %}
+            </select>
+          </td>
+          <td>
+            <select name="ship_class{{i}}">
+              {% for class in ship_class %}
+                <option value="{{class}}">{{class}}</option>
+              {% endfor %}
+            </select>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+    <br><br>
+    <input type="hidden" name="set-map" id="set-map" value="">
+    <button type="submit" name="submit-button" onclick="setMap();" class="btn">Submit</button>
+    <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
+  </form>
 </div>
+
+<script>
+  function setMap() {
+    map = document.getElementsByClassName("div-maps world");
+    for (i = 0; i < map.length; i++) {
+      if(document.getElementById(map[i].id).style.display == "block") {
+        document.getElementById("set-map").value = map[i].id;
+        // alert(document.getElementById("set-map").value); // Not updating 2nd map even though value changes
+      }
+    }
+  }
+</script>
