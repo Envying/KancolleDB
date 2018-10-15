@@ -17,6 +17,9 @@ env_variables:
 libraries:
 - name: MySQLdb
   version: latest
+- name: PIL
+  version: latest
 
+# skips the env files, as it is only required locally for virtualenv
 skip_files:
  - ^env

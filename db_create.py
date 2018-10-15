@@ -41,7 +41,7 @@ def deleteUserDatabase():
 # pre create the User table
 def createUserDatabase():
 	insert_statement = (
-				"CREATE TABLE user (id int, email varchar(255), name varchar(255), avatar varchar(255), tokens varchar(255)) "
+				"CREATE TABLE user (id int, email varchar(100), name varchar(100), avatar varchar(100), tokens Text)) "
 				)
 	cur.execute(insert_statement)
 	db.commit()
