@@ -1,7 +1,4 @@
-import webapp
 from webapp import app
-
-app = webapp.create_app(config)
 
 # Run without the SSL (GAE)
 # if __name__ == '__main__':
