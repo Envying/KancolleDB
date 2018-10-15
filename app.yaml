@@ -19,10 +19,10 @@ libraries:
   version: latest
 # - name: PIL
 #   version: latest
-- name: pycrypto
-  version: latest
-- name: grpcio
-  version: latest
+# - name: pycrypto
+#   version: latest
+# - name: grpcio
+#   version: latest
 
 # skips the env files when uploading to gcloud, as it is only required locally for virtualenv
 skip_files:
