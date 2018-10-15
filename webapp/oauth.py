@@ -15,3 +15,11 @@ def get_google_auth(state=None, token=None):
         redirect_uri=Auth.REDIRECT_URI,
         scope=Auth.SCOPE)
     return oauth
+
+# Loading the users id oject to check if user is autheticated
+from webapp import login_manager
+from webapp.models import User
+
+@login_manager.user_loader
+def get_user(id):
+    return User.query.get(id)

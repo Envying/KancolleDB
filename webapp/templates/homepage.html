@@ -3,6 +3,9 @@
   <body>
         <div class="home">
           <h1>Welcome to KancolleDB</h1>
+          {% if current_user.is_authenticated %}
+            <h2> Hi {{ current_user.name }}! </h2>
+          {% endif %}
         </div>
   </body>
 {% endblock %}
