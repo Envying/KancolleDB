@@ -23,6 +23,3 @@ libraries:
 # skips the env files when uploading to gcloud, as it is only required locally for virtualenv
 # skip_files:
 #  - ^env
-
-beta_settings:
-    cloud_sql_instances: kancolledb-project:australia-southeast1:kancolle-mysql
