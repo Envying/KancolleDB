@@ -12,5 +12,5 @@ def gen_connection():
         conn_template = 'mysql://%s:%s@127.0.0.1:3306/%s'
         return conn_template % (SQL.SQL_USER, SQL.SQL_PASSWORD, SQL.SQL_INSTANCE)
     else:
-        conn_template = 'mysql+mysqldb://%s:%s@/%s?unix_socket=/cloudsql/%s'
+        conn_template = 'mysql+mysqldb://%s:%s@localhost/%s?unix_socket=/cloudsql/%s'
         return conn_template % (SQL.SQL_USER, SQL.SQL_PASSWORD, SQL.SQL_INSTANCE, SQL.SQL_CONNECTION_NAME)
