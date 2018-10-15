@@ -17,9 +17,9 @@ env_variables:
 libraries:
 - name: MySQLdb
   version: latest
-- name: PIL
-  version: latest
+# - name: PIL
+#   version: latest
 
-# skips the env files, as it is only required locally for virtualenv
+# skips the env files when uploading to gcloud, as it is only required locally for virtualenv
 skip_files:
  - ^env
