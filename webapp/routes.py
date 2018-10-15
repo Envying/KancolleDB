@@ -4,8 +4,7 @@ import json
 # from PIL import Image
 from flask import render_template, url_for, flash, redirect, request, abort, session
 from webapp import app, db
-from webapp.oauth import get_google_auth
-from webapp.config import Auth
+from webapp.oauth import get_google_auth, Auth
 from webapp.models import User
 from flask_login import LoginManager, login_user, current_user, logout_user, login_required, logout_user, UserMixin
 from requests_oauthlib import OAuth2Session
