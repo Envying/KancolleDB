@@ -1,12 +1,12 @@
 import os
 from webapp import app
 
+# For Developers only
+os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
+
 # Run without the SSL (GAE)
 if __name__ == '__main__':
     app.run(host='localhost', port=8080, debug=True)
-
-# For Developers only
-# os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
 # Run with a SSL (Locally)
 # if __name__ == '__main__':
