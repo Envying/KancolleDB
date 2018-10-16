@@ -1,35 +1,29 @@
 <div class="stats-container">
   <div id="wrap-stats">
     <!-- Stats Table-->
-    <table class="usage-stats" id="world_1_1_usage">
-  	<tr>
-  		<th>
-  			Most Used
-  		</th>
-  	</tr>
-  	<!-- {% for composition in fleet_composition_1_1 %} -->
-  	<tr>
-  		<td>
-  			Ship Name
-  		</td>
-  		<!-- {% for i in range(1,13,2) %} -->
-  		<td>
-  			<!-- {{composition[i]}} -->
-  		</td>
-  		<!-- {% endfor %} -->
-  	</tr>
-  	<tr>
-  		<td>
-  			Ship Class
-  		</td>
-  		<!-- {% for i in range(2,14,2) %} -->
-  		<td>
-  			<!-- {{composition[i]}} -->
-  		</td>
-  		<!-- {% endfor %} -->
-  	</tr>
-  	<!-- {% endfor %} -->
-  </table>
+    <div class="stats-table">
+	    <h2>Most Used Kanmusu</h2>
+	    <table class="usage-stats" id="world_1_1_usage">
+	  	<tr>
+	  		<th>
+	  			Ship Name
+	  		</th>
+	  		<th>
+	  			Ship Class
+	  		</th>
+	  	</tr>
+	  	{% for data in usage_1_1 %}
+	  	<tr>
+	  		<td>
+	  			{{ data[0] }}
+	  		</td>
+	  		<td>
+	  			{{ data[1] }}
+	  		</td>
+	  	</tr>
+	  	{% endfor %}
+	  	</table>
+		</div>
   </div> 
 </div>
 

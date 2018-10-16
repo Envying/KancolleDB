@@ -7,10 +7,14 @@ class Ship(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	name = db.Column(db.String(20), index=True, nullable=False)
 	ship_class = db.Column(db.String(20), index=True, nullable=False)
+	world_1_1 = db.Column(db.Integer, index=True, nullable=False)
+	world_1_2 = db.Column(db.Integer, index=True, nullable=False)
 
-	def __init__(self, name, ship_class):
+	def __init__(self, name, ship_class, world_1_1, world_1_2):
 		self.name = name
 		self.ship_class = ship_class
+		self.world_1_1 = world_1_1
+		self.world_1_2 = world_1_2
 
 class FleetComposition(db.Model):
 	__tablename__ = "fleet_composition"
@@ -45,14 +49,14 @@ class FleetComposition(db.Model):
 		self.ship_class6 = ship_class6
 		self.world_map = world_map
 
-class ShipUsage(db.Model):
-	__tablename__ = "ship_usage"
-	id = db.Column(db.Integer, primary_key=True)
-	name = db.Column(db.String(20), unique=True, index=True, nullable=False)
-	world_1_1 = db.Column(db.Integer, index=True, nullable=False)
-	world_1_2 = db.Column(db.Integer, index=True, nullable=False)
+# class ShipUsage(db.Model):
+# 	__tablename__ = "ship_usage"
+# 	id = db.Column(db.Integer, primary_key=True)
+# 	name = db.Column(db.String(20), unique=True, index=True, nullable=False)
+# 	world_1_1 = db.Column(db.Integer, index=True, nullable=False)
+# 	world_1_2 = db.Column(db.Integer, index=True, nullable=False)
 
-	def __init__(self, name, world_1_1, world_1_2):
-		self.name = name
-		self.world_1_1 = world_1_1
-		self.world_1_2 = world_1_2
+# 	def __init__(self, name, world_1_1, world_1_2):
+# 		self.name = name
+# 		self.world_1_1 = world_1_1
+# 		self.world_1_2 = world_1_2

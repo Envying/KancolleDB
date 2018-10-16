@@ -20,3 +20,4 @@ libraries:
 
 skip_files:
   - ^env
+  - ^.git

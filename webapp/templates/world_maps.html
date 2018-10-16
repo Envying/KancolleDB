@@ -55,6 +55,7 @@
       var i, map_content, sidebar_button;
       var stats = "_stats";
       var composition = "_composition";
+      var usage = "_usage";
 
       // Initially hide all content
       map_content = document.getElementsByClassName("world");
@@ -65,6 +66,11 @@
       map_stats = document.getElementsByClassName("world-stats");
       for (i = 0; i < map_stats.length; i++) {
          map_stats[i].style.display = "none";
+      }
+
+      map_usage = document.getElementsByClassName("usage-stats");
+      for (i = 0; i < map_stats.length; i++) {
+         map_usage[i].style.display = "none";
       }
 
       map_table = document.getElementsByClassName("fleet-composition");
@@ -79,7 +85,8 @@
       }
     	document.getElementById(worldName).style.display = "block";
       document.getElementById(worldName + stats).style.display = "block"; 
-      document.getElementById(worldName + composition).style.display = "block";
+      document.getElementById(worldName + composition).style.display = "inline-block";
+      document.getElementById(worldName + usage).style.display = "block"; 
       evt.currentTarget.className += " w3-red";
     }
   </script>

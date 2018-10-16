@@ -245,6 +245,10 @@ select#fixed {
     text-align: center; /* For display purposes */
 }
 
+.usage-stats {
+    margin: auto;
+}
+
 /** Page layout **/
 .page-content {
     border: 0px;
@@ -281,5 +285,4 @@ select#fixed {
     border: 1px solid black;
     text-align: center;
 }
-
 
