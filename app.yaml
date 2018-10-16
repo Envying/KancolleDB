@@ -1,5 +1,3 @@
-application: kancolledb-project
-version: 2
 runtime: python27
 api_version: 1
 threadsafe: true
@@ -27,6 +25,6 @@ libraries:
 #   version: latest
 
 # skips the env files when uploading to gcloud, as it is only required locally for virtualenv
-# skip_files:
-#  - ^env
-#  - ^.git
+skip_files:
+ - ^env
+ - ^.git
