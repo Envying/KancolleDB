@@ -53,7 +53,7 @@ def world_maps():
     usage_1_1 = cur.fetchall()
 
     return render_template('world_maps.html', ship_name=ship_name, ship_class=ship_class,
-        fleet_composition_1_1=fleet_composition_1_1, usage_1_1=usage_1_1)
+        fleet_composition_1_1=fleet_composition_1_1, usage_1_1=usage_1_1, i=zip(usage_1_1, range(1, 11)))
 
 # Routes to login page, uses Flask-Login to check if user is authenticated
 @app.route('/loginpage')

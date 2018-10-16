@@ -5,6 +5,9 @@
 	    <h2>Most Used Kanmusu</h2>
 	    <table class="usage-stats" id="world_1_1_usage">
 	  	<tr>
+            <th>
+                Rating
+            </th>
 	  		<th>
 	  			Ship Name
 	  		</th>
@@ -12,8 +15,11 @@
 	  			Ship Class
 	  		</th>
 	  	</tr>
-	  	{% for data in usage_1_1 %}
+	  	{% for data, i in i %}
 	  	<tr>
+            <td>
+                {{ i }}
+            </td>
 	  		<td>
 	  			{{ data[0] }}
 	  		</td>
@@ -24,7 +30,7 @@
 	  	{% endfor %}
 	  	</table>
 		</div>
-  </div> 
+  </div>
 </div>
 
 <!-- Some Javascript to generate our table by getting ships and usage for some map-->
