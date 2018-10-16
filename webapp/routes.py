@@ -29,7 +29,7 @@ def login():
         return redirect(url_for('homepage'))
     google = get_google_auth()
     auth_url, state = google.authorization_url(
-        Auth.AUTH_URI, access_type='offline')
+        Auth.AUTH_URI, access_type='offline', include_granted_scopes='true')
     session['oauth_state'] = state
     return render_template('loginpage.html', auth_url=auth_url)
 
