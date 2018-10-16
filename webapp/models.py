@@ -20,18 +20,18 @@ class Ship(db.Model):
 
 # Table for User attributes to be stored
 class User(db.Model, UserMixin):
-    __tablename__ = "users"
-    id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(100), unique=True, nullable=False)
-    name = db.Column(db.String(100), nullable=True)
-    avatar = db.Column(db.String(200))
-    tokens = db.Column(db.Text)
+	__tablename__ = "users"
+	id = db.Column(db.Integer, primary_key=True)
+	email = db.Column(db.String(100), unique=True, nullable=False)
+	name = db.Column(db.String(100), nullable=True)
+	avatar = db.Column(db.String(200))
+	tokens = db.Column(db.Text)
 
-def __init__(self, email, name, avatar, tokens):
-   self.email = email
-   self.name = name
-   self.avatar = avatar
-   self.tokens = tokens
+	def __init__(self, email, name, avatar, tokens):
+		self.email = email
+		self.name = name
+		self.avatar = avatar
+		self.tokens = tokens
 
 class FleetComposition(db.Model):
 	__tablename__ = "fleet_composition"

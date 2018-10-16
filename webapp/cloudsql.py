@@ -2,9 +2,9 @@ import os
 import MySQLdb
 import webapp
 
-CLOUDSQL_CONNECTION_NAME = os.environ.get('CLOUDSQL_CONNECTION_NAME')
-CLOUDSQL_USER = os.environ.get('CLOUDSQL_USER')
-CLOUDSQL_PASSWORD = os.environ.get('CLOUDSQL_PASSWORD')
+CLOUDSQL_CONNECTION_NAME = 'kancolledb-project:australia-southeast1:kancolle-mysql'
+CLOUDSQL_USER = 'root'
+CLOUDSQL_PASSWORD = 'kancolledbpw'
 CLOUDSQL_INSTANCE = 'admin'
 
 # The following code checks whether we are connected to Google or Localhost
@@ -15,6 +15,7 @@ def gen_connection():
     else:
         return 'mysql://root:kancolledbpw@127.0.0.1:3306/admin'
 
+# Connec to the GAE SQL or Local SQL
 def connect_to_cloudsql():
     if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine/'):
         cloudsql_unix_socket = os.path.join(

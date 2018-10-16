@@ -45,7 +45,7 @@ def world_maps():
             ship_class.append(row[2])
 
     # Get composition data
-    cur.execute("SELECT * FROM fleet_composition WHERE world_map = \"world_1_1\"")
+    cur.execute("SELECT * FROM fleet_composition WHERE world_map = \'world_1_1\'")
     fleet_composition_1_1 = cur.fetchall()
 
     # Get top 10 used ships from world 1-1
