@@ -66,6 +66,12 @@ def login():
     session['oauth_state'] = state
     return render_template('loginpage.html', auth_url=auth_url)
 
+# Logs user out when logout is clicked, user must be logged in
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('homepage'))
 
 # Checks if user is authenticated, once logged in it stores the information into the database
 @app.route('/oAuthcallback')
@@ -105,13 +111,6 @@ def callback():
             login_user(user)
             return redirect(url_for('homepage'))
         return 'Could not fetch your information.'
-
-# Logs user out when logout is clicked, user must be logged in
-@app.route('/logout')
-@login_required
-def logout():
-    logout_user()
-    return redirect(url_for('homepage'))
 
 @app.route('/post_comp', methods=['POST'])
 def post_comp():
