@@ -17,12 +17,16 @@
                                <li><a href="#">Event Maps</a></li>
                                <li><a href="#">Event Planner</a></li>
                                <li><a href="#">Forum</a></li>
+<<<<<<< HEAD
                                <!-- added a for loop to check if user is is authenticated (changes login and logout button) -->
                                {% if current_user.is_authenticated %}
                                <li style="float:right"><a class="active" href="{{url_for('logout')}}">Logout</a></li>
                                {% else %}
                                <li style="float:right"><a class="active" href="{{url_for('login')}}">Login</a>
                                {% endif %}
+=======
+                               <li style="float:right"><a class="acitve" href="{{url_for('login')}}">Login</a></li>
+>>>>>>> ac3d3b42e26bd81bbc86837172e3baef586d87ba
                            </ul>
                        </div>
                        </div>
