@@ -2,6 +2,10 @@ from requests_oauthlib import OAuth2Session
 
 # This is the config file for oauth2, setting variables
 class Auth:
+# Standard oAuth Configs
+    # CLIENT_ID = ('236022772111-k75a5rbus7mstud3rkoddm6n1d6p112a.apps.googleusercontent.com')
+    # CLIENT_SECRET = 'gCfyefl41AhZzZK-8ok53efG'
+# Auto create for google sign in
     CLIENT_ID = ('236022772111-vsgun1g6qj213fnpdc7uemi1uqpee3jb.apps.googleusercontent.com')
     CLIENT_SECRET = 'LKUpP1CsRJ0EjpxXMiE6TkQw'
 # SLL host
