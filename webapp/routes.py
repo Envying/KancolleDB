@@ -53,19 +53,22 @@ def login():
 @app.route('/post_comp', methods=['POST'])
 def post_comp():
     # from flask import jsonify
-    name = request.form['ship_name0']
-    ship_class = request.form['ship_class0']
-    name2 = request.form['ship_name1']
-    ship_class2 = request.form['ship_class1']
-    name3 = request.form['ship_name2']
-    ship_class3 = request.form['ship_class2']
-    name4 = request.form['ship_name3']
-    ship_class4 = request.form['ship_class3']
-    name5 = request.form['ship_name4']
-    ship_class5 = request.form['ship_class4']
-    name6 = request.form['ship_name5']
-    ship_class6 = request.form['ship_class5']
-    world_map = request.form['set-map']
+
+    # Get form data for compositions
+    composition = []
+    composition.append(request.form['ship_name0'])
+    composition.append(request.form['ship_class0'])
+    composition.append(request.form['ship_name1'])
+    composition.append(request.form['ship_class1'])
+    composition.append(request.form['ship_name2'])
+    composition.append(request.form['ship_class2'])
+    composition.append(request.form['ship_name3'])
+    composition.append(request.form['ship_class3'])
+    composition.append(request.form['ship_name4'])
+    composition.append(request.form['ship_class4'])
+    composition.append(request.form['ship_name5'])
+    composition.append(request.form['ship_class5'])
+    composition.append(request.form['set-map'])
 
     insert_statement = (
                 "INSERT INTO fleet_composition (name, ship_class, name2, ship_class2, "
@@ -73,10 +76,27 @@ def post_comp():
                 "name6, ship_class6, world_map) "
                 "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
                 )
-    values = (name, ship_class, name2, ship_class2, name3, ship_class3, name4, ship_class4, 
-        name5, ship_class5, name6, ship_class6, world_map)
+    # values = (name, ship_class, name2, ship_class2, name3, ship_class3, name4, ship_class4, 
+    #     name5, ship_class5, name6, ship_class6, world_map)
 
-    cur.execute(insert_statement, values)
+    # cur.execute(insert_statement, composition)
+
+    cur.execute("SELECT * FROM ship_usage")
+    usage_data = cur.fetchall()
+
+    for i in range(0, 12, 2):
+        update_statement = (
+            "UPDATE ship_usage SET %s = %s + 1 WHERE name = \'%s\' " % (composition[-1], composition[-1], composition[i])
+        )
+        update_value = (composition[-1], composition[-1], composition[i])
+        cur.execute(update_statement)
+
+        # insert_statement = (
+        #     "INSERT INTO ship_usage (name, map_1_1, map_1_2) SELECT * FROM (SELECT \'%s\', 0, 0) AS tmp WHERE NOT EXISTS (SELECT name FROM ship_usage WHERE name = %s " % (composition[i], composition[i])
+        # )
+        # insert_value = (composition[i], composition[i])
+        # cur.execute(insert_statement)
+
     con.commit()
 
     # return jsonify(test)

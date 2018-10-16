@@ -44,3 +44,15 @@ class FleetComposition(db.Model):
 		self.name6 = name6
 		self.ship_class6 = ship_class6
 		self.world_map = world_map
+
+class ShipUsage(db.Model):
+	__tablename__ = "ship_usage"
+	id = db.Column(db.Integer, primary_key=True)
+	name = db.Column(db.String(20), unique=True, index=True, nullable=False)
+	world_1_1 = db.Column(db.Integer, index=True, nullable=False)
+	world_1_2 = db.Column(db.Integer, index=True, nullable=False)
+
+	def __init__(self, name, world_1_1, world_1_2):
+		self.name = name
+		self.world_1_1 = world_1_1
+		self.world_1_2 = world_1_2

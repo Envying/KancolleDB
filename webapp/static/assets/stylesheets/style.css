@@ -280,7 +280,6 @@ select#fixed {
 .fleet-composition td, .fleet-composition tr, .fleet-compositon th {
     border: 1px solid black;
     text-align: center;
-    margin: auto;
 }
 
 

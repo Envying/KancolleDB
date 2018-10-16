@@ -7,7 +7,8 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:kancolledbpw@127.0.0.1:3306/admin'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:kancolledbpw@127.0.0.1:3306/admin'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqldb://root:kancolledbpw@localhost/admin?unix_socket=/cloudsql/kancolledb-project:australia-southeast1:kancolle-mysql'
 db = SQLAlchemy(app)
 
 # bcrypt = Bcrypt(app)

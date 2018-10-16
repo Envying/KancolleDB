@@ -25,7 +25,7 @@ def loadShipDatabase():
 
 # Delete all rows from ship database
 def deleteShipDatabase():
-	cur.execute("""truncate table ship """)
+	cur.execute("DROP TABLE ship")
 	db.commit()
 
 # Create fleet composition database
@@ -43,7 +43,12 @@ def deleteFleetCompositionDatabase():
 	cur.execute("DROP TABLE fleet_composition")
 	db.commit()
 
+# Delete all rows from fleet composition database
+def deleteShipUsageDatabase():
+	cur.execute("DROP TABLE ship_usage")
+	db.commit()
+
 # Some if statement to check if changes made to csv vs database
 # if true recreate db else do nothing
 
-# db.create_all()
+db.create_all()
