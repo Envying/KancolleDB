@@ -17,17 +17,15 @@ def gen_connection():
 
 def connect_to_cloudsql():
     if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine/'):
-        # Connect using the unix socket located at
-        # /cloudsql/cloudsql-connection-name.
         cloudsql_unix_socket = os.path.join(
             '/cloudsql', CLOUDSQL_CONNECTION_NAME)
 
-        db = MySQLdb.connect(
-            unix_socket=cloudsql_unix_socket,
-            user=CLOUDSQL_USER,
-            passwd=CLOUDSQL_PASSWORD,
-            db=CLOUDSQL_INSTANCE)
+        db_connection = MySQLdb.connect(
+                        unix_socket=cloudsql_unix_socket,
+                        user=CLOUDSQL_USER,
+                        passwd=CLOUDSQL_PASSWORD,
+                        db=CLOUDSQL_INSTANCE)
     else:
-        db = MySQLdb.connect(
-            host='127.0.0.1', user=CLOUDSQL_USER, passwd=CLOUDSQL_PASSWORD, db=CLOUDSQL_INSTANCE)
-    return db
+        db_connection = MySQLdb.connect(
+                       host='127.0.0.1', user=CLOUDSQL_USER, passwd=CLOUDSQL_PASSWORD, db=CLOUDSQL_INSTANCE)
+    return db_connection
