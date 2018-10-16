@@ -1,5 +1,6 @@
 import os
 import json
+import httplib2
 # import secrets
 # from PIL import Image
 from flask import render_template, url_for, flash, redirect, request, abort, session
@@ -36,7 +37,7 @@ def login():
 # Checks if user is authenticated, once logged in it stores the information into the database
 @app.route('/oAuthcallback')
 def callback():
-    if current_user is not None and current_user.is_authenticated:
+    if current_user.is_authenticated:
         return redirect(url_for('homepage'))
     if 'error' in request.args:
         if request.args.get('error') == 'access_denied':
