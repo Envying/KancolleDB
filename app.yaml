@@ -17,3 +17,7 @@ env_variables:
 libraries:
 - name: MySQLdb
   version: latest
+
+skip_files:
+  - ^env
+  - ^.git

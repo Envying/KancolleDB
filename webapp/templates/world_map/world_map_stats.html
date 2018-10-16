@@ -1,8 +1,29 @@
 <div class="stats-container">
   <div id="wrap-stats">
     <!-- Stats Table-->
-    <p>Insert Stats Table Here</p>
-    <p>See world_map_stats.html</p>
+    <div class="stats-table">
+	    <h2>Most Used Kanmusu</h2>
+	    <table class="usage-stats" id="world_1_1_usage">
+	  	<tr>
+	  		<th>
+	  			Ship Name
+	  		</th>
+	  		<th>
+	  			Ship Class
+	  		</th>
+	  	</tr>
+	  	{% for data in usage_1_1 %}
+	  	<tr>
+	  		<td>
+	  			{{ data[0] }}
+	  		</td>
+	  		<td>
+	  			{{ data[1] }}
+	  		</td>
+	  	</tr>
+	  	{% endfor %}
+	  	</table>
+		</div>
   </div> 
 </div>
 
