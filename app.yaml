@@ -17,7 +17,6 @@ env_variables:
 libraries:
 - name: MySQLdb
   version: latest
-<<<<<<< HEAD
 # - name: PIL
 #   version: latest
 # - name: pycrypto
@@ -29,9 +28,3 @@ libraries:
 skip_files:
  - ^env
  - ^.git
-=======
-
-skip_files:
-  - ^env
-  - ^.git
->>>>>>> ac3d3b42e26bd81bbc86837172e3baef586d87ba
