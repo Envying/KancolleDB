@@ -1,11 +1,55 @@
 {% extends "navbar.html" %}
 {% block content %}
+<style>
+.home-card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #333;
+    background-color: #333;
+}
+
+.home-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.img-sticky {
+    position: sticky;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+</style>
   <body>
-        <div class="home">
+    <table width="100%">
+      <td width="15%" valign="top" class="home-sidebar"> </td>
+      <td width="55%" valign="top" class="home-cardst">
+        <div class="home-card">
           <h1>Welcome to KancolleDB</h1>
-          {% if current_user.is_authenticated %}
-            <h2> Hi {{ current_user.name }}! </h2>
-          {% endif %}
-        </div>
+          <p> Community based database for kancolle players</p>
+          </div>
+          <br>
+            <div class="home-card">
+                <h2> Website is still under construction</h2>
+                <img class="img-maps" src="{{url_for('static', filename='assets/img/common/catbomb.png')}}">
+            </div>
+          <br>
+            <div class="home-card">
+                <h2> Saury Fishing Event Now on! </h2>
+                <p> For more details visit: </p>
+                <img class="img-maps" src="{{url_for('static', filename='assets/img/common/fishing-banner.png')}}">
+            </div>
+          <br>
+          <div class="home-card">
+              <h2>Future updates</h2>
+              <p>Event Maps </p>
+              <p>Event Planner </p>
+              <p>Forum </p>
+              <p>Add More Maps </p>    
+          </div>
+      </td>
+      <td width="20%" valign="top" class="home-sidebar2">
+          <img class="img-sticky" src="{{url_for('static', filename='assets/img/common/akashi-construct.png')}}">
+      </td>
   </body>
 {% endblock %}
